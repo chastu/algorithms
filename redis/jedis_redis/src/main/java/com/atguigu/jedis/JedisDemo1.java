@@ -42,4 +42,16 @@ public class JedisDemo1 {
             System.out.println(value);
         }
     }
+    @Test
+    public void demo3(){
+        //创建Jedis对象
+        Jedis jedis = new Jedis("192.168.235.100",6379);
+        //添加set集合
+        jedis.sadd("name","lucy","jack");
+        //取值
+        Set<String> names = jedis.smembers("name");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
 }
